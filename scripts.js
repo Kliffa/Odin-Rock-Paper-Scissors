@@ -26,22 +26,53 @@ function playRound(playerSelection, computerSelection){
     console.log(playerSelection + " " + computerSelection) // call this out to verify whether the if statement below works
 
     if (playerSelection==computerSelection){
-        return "It's a draw. You picked the same as the computer!";
+        console.log( "It's a draw. You picked the same as the computer!");
     } else if (playerSelection =="rock" && computerSelection == "paper") { 
-        return "You lose! Paper beats rock!";
+        computerWins++;
+        console.log( "You lose! Paper beats rock!");
     } else if (playerSelection =="rock"&& computerSelection == "scissors" ){
-        return "You win! Rock beats scissors!";
+        playerWins++;
+        console.log( "You win! Rock beats scissors!");
     } else if (playerSelection =="paper"&& computerSelection == "scissors" ){
-        return "You lose! Scissors beat paper";
+        computerWins++;
+        console.log( "You lose! Scissors beat paper");
     } else if (playerSelection =="paper"&& computerSelection == "rock" ){
-        return "You win! Paper beats rock!";
+        playerWins++;
+        console.log( "You win! Paper beats rock!");
     } else if (playerSelection =="scissors"&& computerSelection == "rock" ){
-        return "You lose! Rock beats scissors!";
+        computerWins++;
+        console.log( "You lose! Rock beats scissors!");
     } else if (playerSelection =="scissors"&& computerSelection == "paper" ){
-        return "You win! Scissors beat paper!";
+        playerWins++;
+        console.log( "You win! Scissors beat paper!");
     }
 }
 
-let playerSelection = prompt();
-let computerSelection = getComuterChoice();
-console.log(playRound(playerSelection, computerSelection));
+//let playerSelection = prompt();
+//let computerSelection = getComuterChoice();
+//console.log(playRound(playerSelection, computerSelection));
+
+// Write a new game() function, where the previous functions are used to play the game 5 times. 
+// the winner should be logged after each game, and the final winner should be declared 
+//therefore the number of wins should be calculated.
+// try a for loop for games 1 - 5
+
+
+let playerWins = 0; // initializing number of wins for player
+let computerWins = 0; // initializing number of wins for computer
+
+function game(){
+    for (let i =1;i <6; i++  ){
+        let playerSelection = prompt();
+        let computerSelection = getComuterChoice();
+        playRound(playerSelection,computerSelection);
+    }
+}
+game();
+if(computerWins == playerWins){
+    console.log("There is no winner this time!");
+} else if(computerWins < playerWins){
+    console.log("You won the most!");
+} else {
+    console.log("The computer won the most!");
+}
