@@ -24,7 +24,7 @@ function playRound(playerSelection, computerSelection){
     //first make sure the playerSelection is case=insensitive by translating the input to a lower case variant.
     playerSelection = playerSelection.toLowerCase(); // to make sure the input of the player is case insensitive
     console.log(playerSelection + " " + computerSelection) // call this out to verify whether the if statement below works
-     
+
     if (playerSelection==computerSelection){
         return "It's a draw. You picked the same as the computer!";
     } else if (playerSelection =="rock" && computerSelection == "paper") { 
@@ -42,6 +42,6 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
-const playerSelection = "SCISSORS";
+let playerSelection = prompt();
 let computerSelection = getComuterChoice();
 console.log(playRound(playerSelection, computerSelection));
