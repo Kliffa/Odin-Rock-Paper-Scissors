@@ -60,19 +60,20 @@ function playRound(playerSelection, computerSelection){
 
 let playerWins = 0; // initializing number of wins for player
 let computerWins = 0; // initializing number of wins for computer
+// ctrl + / to comment out a selection in vscode!
 
-function game(){
-    for (let i =1;i <6; i++  ){
-        let playerSelection = prompt();
-        let computerSelection = getComuterChoice();
-        playRound(playerSelection,computerSelection);
-    }
-}
-game();
-if(computerWins == playerWins){
-    console.log("There is no winner this time!");
-} else if(computerWins < playerWins){
-    console.log("You won the most!");
-} else {
-    console.log("The computer won the most!");
-}
+// function game(){
+//     for (let i =1;i <6; i++  ){
+//         let playerSelection = prompt();
+//         let computerSelection = getComuterChoice();
+//         playRound(playerSelection,computerSelection);
+//     }
+// }
+// game();
+// if(computerWins == playerWins){
+//     console.log("There is no winner this time!");
+// } else if(computerWins < playerWins){
+//     console.log("You won the most!");
+// } else {
+//     console.log("The computer won the most!");
+// }
