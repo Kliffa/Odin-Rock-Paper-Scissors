@@ -26,25 +26,57 @@ function playRound(playerSelection, computerSelection){
     console.log(playerSelection + " " + computerSelection) // call this out to verify whether the if statement below works
 
     if (playerSelection==computerSelection){
-        console.log( "It's a draw. You picked the same as the computer!");
+        //console.log( "It's a draw. You picked the same as the computer!");
+        const logLine = document.createElement('div');
+        logLine.textContent="It's a draw. You picked the same as the computer!";
+        gameLog.appendChild(logLine);
     } else if (playerSelection =="rock" && computerSelection == "paper") { 
         computerWins++;
-        console.log( "You lose! Paper beats rock!");
+        computerScore.innerText =computerWins;
+        //console.log( "You lose! Paper beats rock!");
+        const logLine = document.createElement('div');
+        logLine.textContent="You lose! Paper beats rock!";
+        gameLog.appendChild(logLine);
     } else if (playerSelection =="rock"&& computerSelection == "scissors" ){
         playerWins++;
-        console.log( "You win! Rock beats scissors!");
+        //console.log( "You win! Rock beats scissors!");
+        playerScore.innerText = playerWins;
+        const logLine = document.createElement('div');
+        logLine.textContent="You win! Rock beats scissors!";
+        gameLog.appendChild(logLine);
     } else if (playerSelection =="paper"&& computerSelection == "scissors" ){
         computerWins++;
-        console.log( "You lose! Scissors beat paper");
+        computerScore.innerText =computerWins;
+        //console.log( "You lose! Scissors beat paper");
+        const logLine = document.createElement('div');
+        logLine.textContent="You lose! Scissors beat paper";
+        gameLog.appendChild(logLine);
     } else if (playerSelection =="paper"&& computerSelection == "rock" ){
         playerWins++;
-        console.log( "You win! Paper beats rock!");
+        playerScore.innerText = playerWins;
+        //console.log( "You win! Paper beats rock!");
+        const logLine = document.createElement('div');
+        logLine.textContent="You win! Paper beats rock!";
+        gameLog.appendChild(logLine);
     } else if (playerSelection =="scissors"&& computerSelection == "rock" ){
         computerWins++;
-        console.log( "You lose! Rock beats scissors!");
+        computerScore.innerText =computerWins;
+        //console.log( "You lose! Rock beats scissors!");
+        const logLine = document.createElement('div');
+        logLine.textContent="You lose! Rock beats scissors!";
+        gameLog.appendChild(logLine);
     } else if (playerSelection =="scissors"&& computerSelection == "paper" ){
         playerWins++;
-        console.log( "You win! Scissors beat paper!");
+        playerScore.innerText = playerWins;
+        //console.log( "You win! Scissors beat paper!");
+        const logLine = document.createElement('div');
+        logLine.textContent="You win! Scissors beat paper!";
+        gameLog.appendChild(logLine);
+    }
+    if(playerWins==5){
+        alert("You win!");
+    }else if(computerWins==5){
+        alert("The computer wins!");
     }
 }
 
@@ -77,3 +109,20 @@ let computerWins = 0; // initializing number of wins for computer
 // } else {
 //     console.log("The computer won the most!");
 // }
+const buttons = document.querySelectorAll('button');
+buttons.forEach((button) =>{
+    button.addEventListener('click',()=>{
+        if(!(playerWins == 5 || computerWins==5)){
+            let computerSelection = getComuterChoice();
+            playRound(button.innerText,computerSelection); // button.innerText yields the text contained in whatever button is clicked.
+        }else{
+            const logLine = document.createElement('div');
+            logLine.textContent="The game is over, please refresh the page.";
+            gameLog.appendChild(logLine);
+        }
+    });
+});
+
+const playerScore=document.querySelector('.playerScore');
+const computerScore=document.querySelector('.computerScore');
+const gameLog=document.querySelector('.gameLog');
